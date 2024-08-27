@@ -1,0 +1,180 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videos - Mlandomatics African History Research Institute</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <img src="34128722_71_hand_tree (2).jpg" alt="Mlandomatics logo">
+        <h1>Mlandomatics</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="Contacts.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Videos</h1>
+
+    <div class="video-grid">
+      <div class="video-card">
+        <img src="Bantu Tribe Origins.gif" alt="Bantu Origins">
+        <div class="video-info">
+          <h3>Bantu Tribe Origins</h3>
+          <p>Dive into the rich history and vibrant culture of the Bantu people with us! In this video, we explore the fascinating origins and ancestral roots of the Bantu in Southern Africa. Learn about their migration patterns, cultural practices, and the profound impact they've had on the region.</p>
+          <a href="https://youtu.be/DLlhbb_RN70" class="video-link" target="_blank">Watch Video</a>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <img src="Discovering.gif" alt="The Evolution of African Art">
+        <div class="video-info">
+          <h3>Discovering Bantu Ancestry:  Southern Africa's Heritage Unveiled</h3>
+          <p>In this video, we explore the fascinating origins and ancestral roots of the Bantu in Southern Africa. Learn about their migration patterns, cultural practices, and the profound impact they've had on the region.</p>
+          <a href="https://youtu.be/RgHLcmJH31Y" class="video-link" target="_blank">Watch Video</a>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <img src="isihlahla-samaNguni.gif" alt="Isihlahla samaNguni">
+        <div class="video-info">
+          <h3>Isihlahla samaNguni</h3>
+          <p>Nguni Nation Genealogy</p>
+          <a href="https://youtu.be/3KPNi0hFMKc" class="video-link">Watch Video</a>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <img src="Izibongo-zamaLanga.gif" alt="Izibongo zamaLanga">
+        <div class="video-info">
+          <h3>Izibongo zamaLanga kwelakwaZulu</h3>
+          <p>Learn more about relationships within the Nguni Nation.</p>
+          <a href="https://youtu.be/kHkyLthtkuk" class="video-link" target="_blank">Watch Video</a>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <img src="The Resurgence of th Nguni Tribe.gif" alt="The African Diaspora">
+        <div class="video-info">
+          <h3>The Resurgence of the Nguni Tribe</h3>
+          <p>Delve into the intriguing social dynamics and historical events that shaped the great empires of southern Africa. Discover how internal strife, royal rivalries, and the practice of polygamy led to the fragmentation of powerful kingdoms and the rise of new, independent states.</p>
+          <a href="https://youtu.be/Cm5aanupnUc" class="video-link" target="_blank">Watch Video</a>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <img src="language.gif" alt="image">
+        <div class="video-info">
+          <h3>IsiNtu kwakululimi(language) lwamaGibhithe asendulo</h3>
+          <p>Uncover the language that was spoken by the ancient Egyptians.</p>
+          <a href="https://youtu.be/ubItGnl8Ypo" class="video-link" target="_blank">Watch Video</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="upload-section">
+      <h2>Upload Your Own Video</h2>
+      <form class="upload-form">
+        <input type="text" placeholder="Video Title" required>
+        <textarea placeholder="Video Description" required></textarea>
+        <input type="file" accept="video/*" required>
+        <button type="submit">Upload Video</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Mlandomatics - African History Research Institute. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Intersection Observer for fade-in effect
+      const fadeInElements = document.querySelectorAll('.video-card, .upload-section');
+      const fadeInOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px"
+      };
+
+      const fadeInObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, fadeInOptions);
+
+      fadeInElements.forEach(element => {
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        fadeInObserver.observe(element);
+      });
+
+      // Dynamic video card hover effect
+      const videoCards = document.querySelectorAll('.video-card');
+      videoCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.style.backgroundColor = '#FFF5E6';
+          card.querySelector('.video-thumbnail').style.transform = 'scale(1.05)';
+          card.querySelector('.video-thumbnail').style.transition = 'transform 0.3s ease';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.backgroundColor = '#fff';
+          card.querySelector('.video-thumbnail').style.transform = 'scale(1)';
+        });
+      });
+
+      // Video upload form handling
+      const uploadForm = document.querySelector('.upload-form');
+      uploadForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(uploadForm);
+        // Here you would typically send the formData to your server
+        // For this example, we'll just log it to the console
+        console.log('Video upload submitted:', Object.fromEntries(formData));
+        alert('Video uploaded successfully! (This is a simulated response)');
+        uploadForm.reset();
+      });
+
+      // Lazy loading for video thumbnails
+      const lazyLoadImages = document.querySelectorAll('.video-thumbnail');
+      const lazyLoadObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            observer.unobserve(img);
+          }
+        });
+      });
+
+      lazyLoadImages.forEach(img => {
+        lazyLoadObserver.observe(img);
+      });
+    });
+  </script>
+</body>
+</html>

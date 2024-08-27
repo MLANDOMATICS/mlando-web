@@ -1,0 +1,141 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Mlandomatics African History Research Institute</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <img src="34128722_71_hand_tree (2).jpg" alt="Mlandomatics logo">
+        <h1>Mlandomatics</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="Contacts.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Contact Us</h1>
+
+    <div class="contact-container">
+      <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <form id="contact-form">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="text" name="subject" placeholder="Subject" required>
+          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Southgate, Phoenix, 4068, South Africa</p>
+        <p><i class="fas fa-phone"></i> +27 81 766 4941</p>
+        <p><i class="fas fa-envelope"></i> dlebenkomo1@gmail.com</p>
+        <h3>Office Hours</h3>
+        <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+        <p>Saturday: 10:00 AM - 2:00 PM</p>
+        <p>Sunday: Closed</p>
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+          <a href="https://facebook.com/mlandomatics" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://twitter.com/mlandomatics" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com/mlandomatics" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com/company/mlandomatics" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Mlandomatics - African History Research Institute. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const contactForm = document.getElementById('contact-form');
+      
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Collect form data
+        const formData = new FormData(contactForm);
+        const formDataObject = Object.fromEntries(formData.entries());
+        
+        // Here you would typically send the form data to your server
+        // For this example, we'll just log it to the console
+        console.log('Form submitted:', formDataObject);
+        
+        // Show a success message (in a real application, you'd do this after successful server response)
+        alert('Thank you for your message! We will get back to you soon.');
+        
+        // Reset the form
+        contactForm.reset();
+      });
+
+      // Add smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Add animation for form inputs
+      const formInputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
+      formInputs.forEach(input => {
+        input.addEventListener('focus', () => {
+          input.style.transform = 'scale(1.02)';
+          input.style.transition = 'transform 0.3s ease';
+        });
+        input.addEventListener('blur', () => {
+          input.style.transform = 'scale(1)';
+        });
+      });
+
+      // Add hover effect for social media icons
+      const socialIcons = document.querySelectorAll('.social-links a');
+      socialIcons.forEach(icon => {
+        icon.addEventListener('mouseenter', () => {
+          icon.style.transform = 'translateY(-5px)';
+          icon.style.transition = 'transform 0.3s ease';
+        });
+        icon.addEventListener('mouseleave', () => {
+          icon.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Lazy loading for contact info section
+      const contactInfo = document.querySelector('.contact-info');
+      const lazyLoadObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      contactInfo.style.opacity = 0;
+      contactInfo.style.transform = 'translateY(20px)';
+      contactInfo.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      lazyLoadObserver.observe(contactInfo);
+    });
+  </script>
+</body>
+</html>

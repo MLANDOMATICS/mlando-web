@@ -1,0 +1,154 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mlandomatics - African History Research Institute</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <img src="34128722_71_hand_tree (2).jpg" alt="Mlandomatics logo">
+        <h1>
+          <strong>
+            MLANDOMATICS
+          </strong>
+        </h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="Contacts.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>Unveiling Africa's Rich History</h2>
+        <p>Mlandomatics: Exploring the untold stories, forgotten legacies, and vibrant cultures of the African continent</p>
+        <a href="about.html" class="cta-button">Discover Our Mission</a>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2>Featured Research</h2>
+      <div class="featured-section">
+        <div class="featured-item">
+          <img src="palace.jpg" alt="Ancient African palace">
+          <div class="featured-item-content">
+            <h3>Ancient African palace</h3>
+            <p>Uncover the power and influence of Africa's architecture throughout history.</p>
+            <a href="projects.html#ancient-kingdoms">Explore More</a>
+          </div>
+        </div>
+        <div class="featured-item">
+          <img src="ukusina.jpg" alt="African Cultural Heritage" class="shaka">
+          <div class="featured-item-content">
+            <h3>Cultural Heritage</h3>
+            <p>Dive into the rich tapestry of African traditions, art, and customs.</p>
+            <a href="">Learn More</a>
+          </div>
+        </div>
+        <div class="featured-item">
+          <img src="Default_african_zulu_king_Shaka_in_a_battlefield_with_his_troo_3.jpg" alt="African Historical Figures">
+          <div class="featured-item-content">
+            <h3>Historical Figures</h3>
+            <p>Meet the visionaries, leaders, and innovators who shaped Africa's past and present.</p>
+            <a href="projects.html#historical-figures">Discover Heroes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2>Latest Videos</h2>
+      <div class="featured-section">
+        <div class="featured-item">
+         <img src="0802.gif" alt="The Real Shaka Zulu">
+          <div class="featured-item-content">
+            <h3>The Real Shaka Zulu- From Outcast to Zulu Nation Founder</h3>
+            <p>Discover the extraordinary journey of Shaka Zulu, a legendary warrior king whose early life was marked by hardship and struggle. </p>
+            <a href="https://youtu.be/P_8ewg0xnvA?si=LFffU7K6E4e-7diG" target="_blank">Watch Full Video</a>
+          </div>
+        </div>
+        <div class="featured-item">
+          <img src="ZWIDE KA LANGA.gif" alt="King Zwide kaLanga">
+          <div class="featured-item-content">
+            <h3>"King Zwide kaLanga: The Rise and Fall of the Ndwandwe Empire"</h3>
+            <p>Discover the riveting story of King Zwide kaLanga, the powerful leader of the Ndwandwe kingdom whose legacy shaped southern African history.</p>
+            <a href="https://youtu.be/-yoVIQg1vjc?si=SmJ9U5ybg07pFhAl" target="_blank">Watch Full Video</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Mlandomatics - African History Research Institute. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Intersection Observer for fade-in effect
+      const fadeInElements = document.querySelectorAll('.featured-section');
+      const fadeInOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px"
+      };
+
+      const fadeInObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, fadeInOptions);
+
+      fadeInElements.forEach(element => {
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        fadeInObserver.observe(element);
+      });
+
+      // Dynamic hero section content
+      const heroTexts = [
+        { title: "Unveiling Africa's Rich History", subtitle: "Exploring the untold stories, forgotten legacies, and vibrant cultures of the African continent" },
+        { title: "Preserving Our Heritage", subtitle: "Documenting and celebrating the diverse traditions and wisdom of African civilizations" },
+        { title: "Inspiring Future Generations", subtitle: "Connecting the past with the present to shape a brighter future for Africa" }
+      ];
+
+      let currentTextIndex = 0;
+      const heroTitle = document.querySelector('.hero h2');
+      const heroSubtitle = document.querySelector('.hero p');
+
+      function changeHeroText() {
+        currentTextIndex = (currentTextIndex + 1) % heroTexts.length;
+        heroTitle.textContent = heroTexts[currentTextIndex].title;
+        heroSubtitle.textContent = heroTexts[currentTextIndex].subtitle;
+      }
+
+      setInterval(changeHeroText, 5000);
+    });
+  </script>
+</body>
+</html>
