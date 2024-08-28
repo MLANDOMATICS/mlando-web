@@ -1,0 +1,143 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>African History Research Institute</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <img src="34128722_71_hand_tree (2).jpg" alt="Mlandomatics logo">
+        <h1>Mlandomatics</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="Contacts.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">About Mlandomatics</h1>
+
+    <section class="about-section">
+      <img src="Default_King_Tjibelu_and_Queen_Mambali_of_african_Mapungubwe_k_1.jpg" alt="King and a Queen" class="about-image">
+      <div class="about-content">
+        <h2>Our Story</h2>
+        <p>Founded in 2006, MLANDOMATICS is a dedicated research project committed to uncovering the deep and intricate history of African nations and tribes. Our name, "MLANDOMATICS," combines <em>"MLANDO"</em>(history in isiZulu) with <em>"MATICS"</em> to signify our systematic and technological approach to historical research. Over the years, we have embarked on a journey to explore the origins, connections, and heritage of African communities, diving deep into the stories that shape the identity of the continent.</p>
+        <p>What began as a passion for understanding the roots of African ancestry has evolved into a comprehensive research initiative. We have traveled far and wide, engaging with elders, historians, and community leaders from various tribes and nations, each sharing their unique perspectives and knowledge about their origins.</p> 
+        <P>Our research is not limited to oral histories; we have also delved into a vast array of historical documents, theses, and archives, bringing together knowledge from the past with stories passed down through generations.</p>
+        <P>Our research has taken us to prestigious institutions, including the <a href="https://g.co/kgs/p8GBGp4" target="_blank">Killie Campbell Library</a> in Musgrave and the <a href="https://library.ukzn.ac.za/" target="_blank">University of KwaZulu-Natal (UKZN)</a>, as well as numerous local libraries, where we have meticulously studied ancient texts, manuscripts, and records. These resources have been invaluable in piecing together the complex tapestry of Africa's history.</p>
+      </div>
+    </section>
+
+    <section class="mission-vision">
+      <h3>Our Vision</h3>
+      <p>MLANDOMATICS is more than just a research project; it's a platform for sharing knowledge. We have produced numerous videos on African history, providing accessible insights into the rich cultural and historical heritage of the continent. Our content aims to educate, inspire, and foster a deeper understanding of the diverse and interconnected histories of African people.</p>
+      <p>Looking to the future, MLANDOMATICS is excited to expand our offerings. We are in the process of launching a podcast series, where we will discuss our findings in greater detail, engage with experts, and explore new perspectives on African history. Additionally, we plan to design a clothing brand inspired by the themes of our research, celebrating the unique cultural identities of African nations and tribes through fashion.</p>
+      
+      <h3>Join Us on Our Journey</h3>
+      <p>MLANDOMATICS invites you to be a part of this ongoing journey of discovery. Whether you are a researcher, a student, or simply someone interested in Africa's rich history, we welcome you to explore our work, engage with our content, and contribute to the preservation and celebration of African heritage.</p>
+    </section>
+
+    <section class="team-section">
+      <h2>Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="IMG_3541 (1).JPG" alt="Mr. Nhlanhla Thusi">
+          <div class="team-member-info">
+            <h3>Nhlanhla ("Mlunguzi") Thusi</h3>
+            <p>Founder & Lead Researcher</p>
+          </div>
+        </div>
+        
+    <!--   
+        <div class="team-member">
+          <img src="https://via.placeholder.com/300x300?text=Prof.+Kwame+Osei" alt="Prof. Kwame Osei">
+          <div class="team-member-info">
+            <h3>Prof. Kwame Osei</h3>
+            <p>Head of Archaeology</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <img src="https://via.placeholder.com/300x300?text=Dr.+Amina+Diop" alt="Dr. Amina Diop">
+          <div class="team-member-info">
+            <h3>Dr. Amina Diop</h3>
+            <p>Cultural Heritage Specialist</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <img src="https://via.placeholder.com/300x300?text=Mr.+Thabo+Mbeki" alt="Mr. Thabo Mbeki">
+          <div class="team-member-info">
+            <h3>Mr. Thabo Mbeki</h3>
+            <p>Digital Archivist</p>
+          </div>
+        </div>
+      </div>
+    -->  
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Mlandomatics - African History Research Institute. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Intersection Observer for fade-in effect
+      const fadeInElements = document.querySelectorAll('.about-section, .mission-vision, .team-member');
+      const fadeInOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px"
+      };
+
+      const fadeInObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, fadeInOptions);
+
+      fadeInElements.forEach(element => {
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        fadeInObserver.observe(element);
+      });
+
+      // Dynamic team member hover effect
+      const teamMembers = document.querySelectorAll('.team-member');
+      teamMembers.forEach(member => {
+        member.addEventListener('mouseenter', () => {
+          member.style.backgroundColor = '#FFF5E6';
+          member.querySelector('img').style.transform = 'scale(1.05)';
+          member.querySelector('img').style.transition = 'transform 0.3s ease';
+        });
+        member.addEventListener('mouseleave', () => {
+          member.style.backgroundColor = '#fff';
+          member.querySelector('img').style.transform = 'scale(1)';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
