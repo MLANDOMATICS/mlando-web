@@ -1,0 +1,148 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>African History Research Institute</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <img src="34128722_71_hand_tree (2).jpg" alt="Mlandomatics logo">
+        <h1>Mlandomatics</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="Contacts.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Our Projects</h1>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200?text=Ancient+Trade+Routes" alt="Ancient Trade Routes Project" class="project-image">
+        <div class="project-info">
+          <h3>Ancient Trade Routes of Africa</h3>
+          <p>Mapping and exploring the historical trade networks that connected African civilizations with the world.</p>
+          <a href="#" class="project-link">Learn More</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200?text=Oral+Histories" alt="Oral Histories Project" class="project-image">
+        <div class="project-info">
+          <h3>Preserving Oral Histories</h3>
+          <p>Collecting and digitizing oral traditions from various African cultures to ensure their preservation for future generations.</p>
+          <a href="#" class="project-link">Learn More</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200?text=Ancient+Technologies" alt="Ancient Technologies Project" class="project-image">
+        <div class="project-info">
+          <h3>Ancient African Technologies</h3>
+          <p>Researching and reconstructing technological innovations from ancient African civilizations.</p>
+          <a href="#" class="project-link">Learn More</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200?text=Women+in+African+History" alt="Women in African History Project" class="project-image">
+        <div class="project-info">
+          <h3>Women in African History</h3>
+          <p>Uncovering and highlighting the often overlooked contributions of women to African history and culture.</p>
+          <a href="#" class="project-link">Learn More</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200?text=Digital+Archive" alt="Digital Archive Project" class="project-image">
+        <div class="project-info">
+          <h3>African History Digital Archive</h3>
+          <p>Creating a comprehensive online database of historical documents, artifacts, and multimedia resources.</p>
+          <a href="#" class="project-link">Learn More</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200?text=Educational+Outreach" alt="Educational Outreach Project" class="project-image">
+        <div class="project-info">
+          <h3>Educational Outreach Program</h3>
+          <p>Developing curriculum materials and workshops to bring African history to schools and communities.</p>
+          <a href="#" class="project-link">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Mlandomatics - African History Research Institute. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Intersection Observer for fade-in effect
+      const fadeInElements = document.querySelectorAll('.project-card');
+      const fadeInOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px"
+      };
+
+      const fadeInObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, fadeInOptions);
+
+      fadeInElements.forEach(element => {
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        fadeInObserver.observe(element);
+      });
+
+      // Dynamic project card hover effect
+      const projectCards = document.querySelectorAll('.project-card');
+      projectCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.style.backgroundColor = '#FFF5E6';
+          card.querySelector('.project-image').style.transform = 'scale(1.05)';
+          card.querySelector('.project-image').style.transition = 'transform 0.3s ease';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.backgroundColor = '#fff';
+          card.querySelector('.project-image').style.transform = 'scale(1)';
+        });
+      });
+
+      // Randomize project order on page load
+      const projectsGrid = document.querySelector('.projects-grid');
+      for (let i = projectsGrid.children.length; i >= 0; i--) {
+        projectsGrid.appendChild(projectsGrid.children[Math.random() * i | 0]);
+      }
+    });
+  </script>
+</body>
+</html>
